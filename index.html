@@ -41,17 +41,16 @@
   /* Nav */
   header.site-nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(247,243,236,0.92);
+    background:rgba(247,243,236,0.95);
     backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line);
   }
   .nav-inner{
-    max-width:1040px; margin:0 auto; padding:14px 20px;
-    display:flex; align-items:center; gap:16px;
-    overflow-x:auto; -webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
+    position:relative;
+    max-width:1040px; margin:0 auto; padding:16px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+    gap:16px;
   }
-  .nav-inner::-webkit-scrollbar{display:none;}
   .nav-brand{
     font-family:var(--serif); font-weight:700; font-size:15px;
     letter-spacing:0.04em;
@@ -60,51 +59,52 @@
   }
   .nav-brand small{font-family:var(--sans); font-weight:500; font-size:10px; color:var(--coral-deep); letter-spacing:0.12em;}
   .nav-links{
-    display:flex; gap:20px; font-size:12.5px;
+    display:flex; gap:22px; font-size:12.5px;
     letter-spacing:0.03em; color:var(--ink-soft);
-    flex-shrink:0; white-space:nowrap;
+    flex-wrap:wrap;
   }
   .nav-links a{padding:4px 0; border-bottom:1px solid transparent; transition:border-color .2s, color .2s;}
   .nav-links a:hover{color:var(--coral-deep); border-color:var(--coral-deep);}
 
+  .nav-toggle{
+    display:none; width:34px; height:34px; border:1px solid var(--line);
+    border-radius:6px; background:var(--white); flex-shrink:0;
+    align-items:center; justify-content:center; cursor:pointer;
+    flex-direction:column; gap:4px;
+  }
+  .nav-toggle span{display:block; width:16px; height:1.5px; background:var(--ink); transition:transform .2s, opacity .2s;}
+  .nav-toggle.open span:nth-child(1){transform:translateY(5.5px) rotate(45deg);}
+  .nav-toggle.open span:nth-child(2){opacity:0;}
+  .nav-toggle.open span:nth-child(3){transform:translateY(-5.5px) rotate(-45deg);}
+
   /* Hero */
   .hero{
     position:relative;
-    min-height:64vh;
-    display:flex; align-items:flex-end;
-    background:#16232E url('images/hero.jpg') center 30%/cover no-repeat;
-    color:#fff; overflow:hidden;
+    height:42vh; min-height:260px; max-height:420px;
+    background:#16232E url('images/hero.jpg') center 38%/cover no-repeat;
   }
-  .hero::after{
-    content:"";
-    position:absolute; inset:0;
-    background:linear-gradient(0deg, rgba(8,12,18,0.55) 0%, rgba(8,12,18,0.08) 60%);
-  }
-  .hero-inner{position:relative; z-index:2; padding:48px 28px; width:100%; max-width:1040px; margin:0 auto;}
-  .hero-text-panel{
-    display:inline-block; background:rgba(10,14,20,0.55);
-    backdrop-filter:blur(3px);
-    padding:22px 26px; border-radius:4px;
-    border-left:3px solid var(--coral);
+  .hero-caption{background:var(--ink); color:#fff;}
+  .hero-caption-inner{
+    max-width:1040px; margin:0 auto; padding:36px 28px 30px;
   }
   .hero-eyebrow{
     font-size:12px; letter-spacing:0.22em; text-transform:uppercase;
-    opacity:0.9; margin-bottom:16px; font-weight:500;
+    opacity:0.85; margin-bottom:14px; font-weight:500; color:#F4D9A0;
   }
   .hero h1{
     font-family:var(--serif); font-weight:700;
-    font-size:clamp(26px, 5vw, 46px);
-    line-height:1.4; letter-spacing:0.02em;
+    font-size:clamp(24px, 4.6vw, 40px);
+    line-height:1.45; letter-spacing:0.02em;
+    margin-bottom:24px;
   }
-  .hero h1 em{font-style:normal; display:block; font-size:0.48em; letter-spacing:0.05em; margin-top:10px; opacity:0.92; font-family:var(--sans); font-weight:500;}
+  .hero h1 em{font-style:normal; display:block; font-size:0.5em; letter-spacing:0.03em; margin-top:10px; opacity:0.85; font-family:var(--sans); font-weight:400;}
 
-  .hero-meta-bar{background:var(--ink); color:#fff;}
   .hero-meta-inner{
-    max-width:1040px; margin:0 auto; padding:22px 28px;
-    display:flex; flex-wrap:wrap; gap:20px 44px;
+    display:flex; flex-wrap:wrap; gap:18px 40px;
+    border-top:1px solid rgba(255,255,255,0.18); padding-top:22px;
   }
   .hero-meta-inner div{min-width:120px;}
-  .hero-meta-inner span{display:block; font-size:10.5px; letter-spacing:0.16em; opacity:0.7; margin-bottom:6px;}
+  .hero-meta-inner span{display:block; font-size:10.5px; letter-spacing:0.16em; opacity:0.65; margin-bottom:6px;}
   .hero-meta-inner strong{font-weight:600; font-size:15px;}
 
   /* Section heading */
@@ -301,7 +301,10 @@
     display:flex; align-items:center; gap:16px; justify-content:space-between; padding:16px 0;
     border-bottom:1px solid var(--line); font-size:14px;
   }
-  .price-row-label{display:flex; align-items:center; gap:16px;}
+  .price-row-label{display:flex; align-items:center; gap:16px; flex:1; min-width:0;}
+  .price-row-label > span{flex:1; min-width:0;}
+  .price-name{display:block; font-weight:600; color:var(--ink); margin-bottom:2px;}
+  .price-sub{display:block; font-size:12px; color:var(--ink-soft); font-weight:400;}
   .price-thumb{
     width:64px; height:64px; border-radius:10px; flex-shrink:0;
     background-color:#fff; border:1px solid var(--line);
@@ -357,6 +360,15 @@
 
   @media(max-width:640px){
     section{padding:64px 20px;}
+    .nav-toggle{display:flex;}
+    .nav-links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      background:var(--white); border-bottom:1px solid var(--line);
+      flex-direction:column; gap:0; padding:8px 20px 16px;
+      box-shadow:0 8px 16px rgba(0,0,0,0.06);
+    }
+    .nav-links.open{display:flex;}
+    .nav-links a{padding:12px 0; border-bottom:1px solid var(--line); width:100%;}
   }
 </style>
 </head>
@@ -365,7 +377,7 @@
 <header class="site-nav">
   <div class="nav-inner">
     <div class="nav-brand">B_hoops.<small>牛窓フェス 2026 ・ 当日案内</small></div>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#guide">ご来場案内</a>
       <a href="#schedule">スケジュール</a>
       <a href="#sports">スポーツ大会</a>
@@ -373,23 +385,23 @@
       <a href="#yatai">屋台メニュー</a>
       <a href="#attention">ご注意事項</a>
     </nav>
+    <button type="button" class="nav-toggle" id="navToggle" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-text-panel">
-      <div class="hero-eyebrow">For Participants Only</div>
-      <h1>当日案内<em>ご来場のみなさまへ — 受付・スケジュール・スポーツ大会など</em></h1>
-    </div>
-  </div>
-</section>
+<section class="hero"></section>
 
-<div class="hero-meta-bar">
-  <div class="hero-meta-inner">
-    <div><span>Date</span><strong>9月22日(火・祝)</strong></div>
-    <div><span>Reception</span><strong>受付 11:00〜</strong></div>
-    <div><span>Place</span><strong>Glampingベースビーチ</strong></div>
+<div class="hero-caption">
+  <div class="hero-caption-inner">
+    <div class="hero-eyebrow">For Participants Only</div>
+    <h1>当日案内<em>ご来場のみなさまへ — 受付・スケジュール・スポーツ大会など</em></h1>
+    <div class="hero-meta-inner">
+      <div><span>Date</span><strong>9月22日(火・祝)</strong></div>
+      <div><span>Reception</span><strong>受付 11:00〜</strong></div>
+      <div><span>Place</span><strong>Glampingベースビーチ</strong></div>
+    </div>
   </div>
 </div>
 
@@ -852,11 +864,17 @@
 
     <div class="price-list">
       <div class="price-row">
-        <div class="price-row-label"><div class="price-thumb" style="background-image:url('images/menu-icecream.jpg');"></div><span>ORIBIOライスミルクアイス（バニラ／チョコ／抹茶／キャラメル）シングル</span></div>
+        <div class="price-row-label">
+          <div class="price-thumb" style="background-image:url('images/menu-icecream.jpg');"></div>
+          <span><span class="price-name">ORIBIOライスミルクアイス</span><span class="price-sub">バニラ／チョコ／抹茶／キャラメル・シングル</span></span>
+        </div>
         <span>500円</span>
       </div>
       <div class="price-row">
-        <div class="price-row-label"><div class="price-thumb" style="background-image:url('images/menu-icecream.jpg');"></div><span>ORIBIOライスミルクアイス（同上）ダブル</span></div>
+        <div class="price-row-label">
+          <div class="price-thumb" style="background-image:url('images/menu-icecream.jpg');"></div>
+          <span><span class="price-name">ORIBIOライスミルクアイス</span><span class="price-sub">バニラ／チョコ／抹茶／キャラメル・ダブル</span></span>
+        </div>
         <span>800円</span>
       </div>
 
@@ -1031,6 +1049,22 @@
 
   initCarousel('volley');
   initCarousel('molkku');
+})();
+
+(function(){
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navLinks');
+  if(!toggle || !links) return;
+  toggle.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    links.classList.toggle('open');
+  });
+  links.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+    });
+  });
 })();
 </script>
 </body>
