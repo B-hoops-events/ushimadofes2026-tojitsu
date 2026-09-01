@@ -91,33 +91,32 @@
   .hero-frame{
     position:relative; margin-top:-64px; z-index:3;
     padding:28px 24px 24px;
-    background:rgba(22,34,45,0.82);
+    background:rgba(255,255,255,0.82);
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
     text-align:center;
   }
   .hero-eyebrow{
     font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase;
-    margin-bottom:10px; font-weight:600; color:#E8C48A;
+    margin-bottom:10px; font-weight:600; color:var(--coral-deep);
   }
   .hero-caption h1{
-    font-family:var(--serif); font-weight:700; color:#fff;
-    font-size:clamp(21px, 3.4vw, 30px);
-    line-height:1.4; letter-spacing:0.02em;
+    font-family:var(--sans); font-weight:700; color:var(--ink);
+    font-size:clamp(17px, 2.4vw, 20px);
+    line-height:1.5; letter-spacing:0.03em;
     margin-bottom:18px;
   }
   .hero-caption h1 .hero-sub-inline{
-    font-family:var(--sans); font-weight:400; font-size:0.5em;
-    color:rgba(255,255,255,0.7); letter-spacing:0.02em; margin-left:2px;
+    font-weight:400; color:var(--ink-soft); letter-spacing:0.02em; margin-left:2px;
   }
 
   .hero-meta-inner{
     display:flex; flex-wrap:wrap; justify-content:center; gap:16px 40px;
-    border-top:1px solid rgba(255,255,255,0.18); padding-top:16px;
+    border-top:1px solid var(--line); padding-top:16px;
   }
   .hero-meta-inner div{min-width:110px;}
-  .hero-meta-inner span{display:block; font-size:10px; letter-spacing:0.14em; color:rgba(255,255,255,0.6); margin-bottom:5px;}
-  .hero-meta-inner strong{font-weight:600; font-size:14px; color:#fff;}
+  .hero-meta-inner span{display:block; font-size:10px; letter-spacing:0.14em; color:var(--ink-soft); margin-bottom:5px;}
+  .hero-meta-inner strong{font-weight:600; font-size:14px; color:var(--ink);}
 
   /* Section heading */
   .eyebrow{
