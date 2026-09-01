@@ -90,33 +90,34 @@
   }
   .hero-frame{
     position:relative; margin-top:-64px; z-index:3;
-    padding:28px 24px 24px;
+    padding:26px 22px 22px;
     background:rgba(255,255,255,0.82);
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
-    text-align:center;
+    text-align:left;
   }
   .hero-eyebrow{
     font-size:10.5px; letter-spacing:0.22em; text-transform:uppercase;
     margin-bottom:10px; font-weight:600; color:var(--coral-deep);
   }
   .hero-caption h1{
-    font-family:var(--sans); font-weight:700; color:var(--ink);
-    font-size:clamp(17px, 2.4vw, 20px);
-    line-height:1.5; letter-spacing:0.03em;
-    margin-bottom:18px;
+    font-family:var(--serif); font-weight:700; color:var(--ink);
+    font-size:clamp(19px, 3vw, 25px);
+    line-height:1.45; letter-spacing:0.03em;
+    margin-bottom:16px;
   }
   .hero-caption h1 .hero-sub-inline{
-    font-weight:400; color:var(--ink-soft); letter-spacing:0.02em; margin-left:2px;
+    font-family:var(--sans); font-weight:400; font-size:0.62em;
+    color:var(--ink-soft); letter-spacing:0.02em; margin-left:2px;
   }
 
   .hero-meta-inner{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:16px 40px;
+    display:flex; flex-wrap:nowrap; justify-content:flex-start; gap:28px;
     border-top:1px solid var(--line); padding-top:16px;
   }
-  .hero-meta-inner div{min-width:110px;}
-  .hero-meta-inner span{display:block; font-size:10px; letter-spacing:0.14em; color:var(--ink-soft); margin-bottom:5px;}
-  .hero-meta-inner strong{font-weight:600; font-size:14px; color:var(--ink);}
+  .hero-meta-inner div{min-width:0; flex-shrink:0;}
+  .hero-meta-inner span{display:block; font-size:10px; letter-spacing:0.14em; color:var(--ink-soft); margin-bottom:5px; white-space:nowrap;}
+  .hero-meta-inner strong{font-weight:600; font-size:14px; color:var(--ink); white-space:nowrap;}
 
   /* Section heading */
   .eyebrow{
@@ -456,6 +457,8 @@
     }
     .nav-links.open{display:flex;}
     .nav-links a{padding:12px 0; border-bottom:1px solid var(--line); width:100%;}
+    .hero-meta-inner{gap:20px;}
+    .hero-meta-inner strong{font-size:13px;}
   }
 </style>
 </head>
