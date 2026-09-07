@@ -428,6 +428,20 @@
   }
   .yatai-menu-list li::before{content:"—"; color:#E8C48A; font-size:13px;}
 
+  /* Cancellation policy */
+  .policy-eyebrow{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:15px; color:rgba(255,255,255,0.8); letter-spacing:0.03em;
+    margin-bottom:24px;
+  }
+  .policy-list{list-style:none;}
+  .policy-list li{
+    display:flex; gap:10px; padding:14px 0; border-top:1px solid rgba(255,255,255,0.12);
+    font-size:14px; line-height:1.9; color:rgba(255,255,255,0.75);
+  }
+  .policy-list li:last-child{border-bottom:1px solid rgba(255,255,255,0.12);}
+  .policy-list li::before{content:"■"; flex-shrink:0; font-size:9px; color:#E8C48A; margin-top:8px;}
+
   /* Attention section */
   .attn-list{list-style:none; margin-top:8px;}
   .attn-list li{
@@ -985,10 +999,6 @@
         <div class="price-row-label"><div class="price-thumb" style="background-image:url('images/menu-trump.jpg');"></div><span>オリジナルトランプ</span></div>
         <span>税込1,300円</span>
       </div>
-      <div class="price-row">
-        <div class="price-row-label"><div class="price-thumb" style="background-image:url('images/menu-tshirt.jpg');"></div><span>オリジナルTシャツ2026</span></div>
-        <span>税込6,800円</span>
-      </div>
       <div class="price-row" style="border-bottom:none;">
         <div class="price-row-label"><div class="price-thumb" style="background-image:url('images/menu-sticker.jpg');"></div><span>野外フェス限定ステッカー</span></div>
         <span>税込200円</span>
@@ -1067,6 +1077,17 @@
         <div class="attn-check"></div>
         <div>イベントの様子は撮影させていただいております。各SNSに掲載させていただく場合があります。</div>
       </li>
+    </ul>
+  </div>
+</section>
+
+<section id="cancellation" class="section-night">
+  <div class="wrap-narrow">
+    <div class="policy-eyebrow">Cancellation Policy</div>
+    <ul class="policy-list">
+      <li>9/12(土)〜14(月) 24時までのキャンセルは参加費の50%をご負担いただきます。</li>
+      <li>9/15(火)以降〜当日のキャンセルは参加費の100%をご負担いただきます。あらかじめご了承ください。</li>
+      <li>キャンセルに伴う返金の際の振込手数料は、お客様のご負担となります。返金額より振込手数料を差し引いた金額をお振り込みいたします。</li>
     </ul>
   </div>
 </section>
