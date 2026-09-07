@@ -231,6 +231,9 @@
   }
   .feature h3{font-family:var(--serif); font-size:26px; font-weight:700; color:#fff; text-shadow:0 2px 10px rgba(0,0,0,0.35);}
   .feature p{font-size:14px; color:var(--ink-soft); margin-bottom:10px; max-width:640px;}
+  .feature-time-note{
+    font-size:12px; color:var(--ink-soft); margin-top:-4px; margin-bottom:14px;
+  }
   .rule-box{
     background:var(--white); border:1px solid var(--line); padding:18px 20px;
     margin-top:16px; font-size:13px; color:var(--ink-soft);
@@ -349,38 +352,30 @@
     background:linear-gradient(180deg, #A9DCEE 0%, #C3E6F2 45%, #DCEFF6 100%);
   }
   .section-sky::before{
-    /* soft sun glow, positioned near the right edge */
     content:""; position:absolute; top:24px; right:-2%; width:200px; height:200px;
     background:radial-gradient(circle, rgba(255,250,220,0.5) 0%, rgba(255,247,210,0.22) 45%, transparent 70%);
     filter:blur(6px); pointer-events:none;
   }
   .section-sky::after{
-    /* fluffy clouds scattered across the sky */
     content:""; position:absolute; inset:0; pointer-events:none;
     background-image:
       radial-gradient(95px 36px at 10% 16%, rgba(255,255,255,0.9), transparent 70%),
       radial-gradient(65px 28px at 17% 19%, rgba(255,255,255,0.9), transparent 70%),
       radial-gradient(75px 30px at 5% 22%, rgba(255,255,255,0.8), transparent 70%),
       radial-gradient(55px 22px at 22% 14%, rgba(255,255,255,0.75), transparent 70%),
-
       radial-gradient(100px 38px at 76% 8%, rgba(255,255,255,0.85), transparent 70%),
       radial-gradient(65px 26px at 85% 6%, rgba(255,255,255,0.85), transparent 70%),
       radial-gradient(50px 20px at 92% 14%, rgba(255,255,255,0.7), transparent 70%),
-
       radial-gradient(90px 34px at 28% 48%, rgba(255,255,255,0.75), transparent 70%),
       radial-gradient(58px 24px at 35% 51%, rgba(255,255,255,0.75), transparent 70%),
       radial-gradient(42px 18px at 20% 46%, rgba(255,255,255,0.65), transparent 70%),
-
       radial-gradient(105px 40px at 63% 62%, rgba(255,255,255,0.7), transparent 70%),
       radial-gradient(70px 28px at 72% 65%, rgba(255,255,255,0.7), transparent 70%),
       radial-gradient(48px 20px at 55% 60%, rgba(255,255,255,0.6), transparent 70%),
-
       radial-gradient(80px 32px at 90% 42%, rgba(255,255,255,0.65), transparent 70%),
       radial-gradient(50px 22px at 97% 48%, rgba(255,255,255,0.6), transparent 70%),
-
       radial-gradient(85px 32px at 3% 78%, rgba(255,255,255,0.65), transparent 70%),
       radial-gradient(55px 22px at 11% 82%, rgba(255,255,255,0.6), transparent 70%),
-
       radial-gradient(95px 36px at 46% 86%, rgba(255,255,255,0.6), transparent 70%),
       radial-gradient(60px 24px at 54% 90%, rgba(255,255,255,0.55), transparent 70%);
     filter:blur(2.5px);
@@ -418,6 +413,17 @@
   }
   .section-night .tbd-banner p{color:rgba(255,255,255,0.6);}
   .section-night .tbd-banner b{color:#fff;}
+
+  .yatai-menu-list{
+    list-style:none; margin-top:32px;
+    display:grid; grid-template-columns:1fr 1fr; column-gap:40px;
+  }
+  @media(max-width:640px){.yatai-menu-list{grid-template-columns:1fr;}}
+  .yatai-menu-list li{
+    padding:15px 0; border-bottom:1px solid rgba(255,255,255,0.14);
+    font-size:15px; font-weight:500; display:flex; align-items:baseline; gap:12px;
+  }
+  .yatai-menu-list li::before{content:"—"; color:#E8C48A; font-size:13px;}
 
   /* Attention section */
   .attn-list{list-style:none; margin-top:8px;}
@@ -598,12 +604,7 @@
 
     <div class="map-card">
       <div class="eyebrow" style="margin-bottom:16px;">Venue</div>
-      <div class="map-frame">
-        会場MAP（画像差し替え）
-        <div class="pin" style="top:14%; left:62%;">メイン会場</div>
-        <div class="pin" style="top:40%; left:44%;">屋台会場</div>
-        <div class="pin" style="top:66%; left:70%;">受付会場</div>
-      </div>
+      <img src="images/venue-map.jpg" alt="会場MAP" style="width:100%; border-radius:2px; display:block;">
     </div>
   </div>
 </section>
@@ -619,11 +620,12 @@
         <span class="feature-num">01 — Beach Volley</span>
         <div class="feature-head">
           <h3>ビーチバレー大会</h3>
-          <span class="feature-tag">12:30〜</span>
+          <span class="feature-tag">12:30〜（予定）</span>
         </div>
       </div>
       <div>
         <p>毎年恒例のビーチバレー大会を今年も開催。なるべく4人1チームでのエントリーをお願いします。4人以下の場合はランダムに組み合わせます。</p>
+        <p class="feature-time-note">※開始時間はエントリー数により前後する場合があります。</p>
         <div class="rule-box">
           <dl>
             <dt>対戦形式</dt><dd>4人制ゲーム（ソフトバレーボールルール）・トーナメント戦</dd>
@@ -672,24 +674,15 @@
               <div class="rule-step">
                 <div class="rule-step-icon">
                   <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- net -->
                     <path d="M150 14 V86" stroke="#3E6E77" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round"/>
-                    <!-- figure: head -->
                     <circle cx="58" cy="24" r="10" fill="#1D2B33"/>
-                    <!-- torso -->
                     <path d="M58 34 L64 62" stroke="#1D2B33" stroke-width="9" stroke-linecap="round"/>
-                    <!-- back leg -->
                     <path d="M64 62 L52 86" stroke="#1D2B33" stroke-width="8" stroke-linecap="round"/>
-                    <!-- front leg -->
                     <path d="M64 62 L80 84" stroke="#1D2B33" stroke-width="8" stroke-linecap="round"/>
-                    <!-- support arm -->
                     <path d="M60 42 L48 54" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
-                    <!-- hitting arm raised -->
                     <path d="M62 38 L86 18" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
-                    <!-- ball above hand -->
                     <circle cx="94" cy="12" r="9" fill="#F4A15B"/>
                     <path d="M89 8 q5 -4 10 0 M89 16 q5 4 10 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
-                    <!-- trajectory to other side -->
                     <path d="M104 12 Q128 20 140 46" stroke="#E1633F" stroke-width="2.2" stroke-dasharray="2 6" stroke-linecap="round"/>
                   </svg>
                 </div>
@@ -714,11 +707,9 @@
               <div class="rule-step">
                 <div class="rule-step-icon">
                   <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- ball falling -->
                     <circle cx="100" cy="14" r="9" fill="#F4A15B"/>
                     <path d="M95 10 q5 -4 10 0 M95 18 q5 4 10 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
                     <path d="M100 24 V38" stroke="#E1633F" stroke-width="2.2" stroke-dasharray="2 6" stroke-linecap="round"/>
-                    <!-- crouched figure -->
                     <circle cx="100" cy="52" r="10" fill="#1D2B33"/>
                     <path d="M100 62 L100 78" stroke="#1D2B33" stroke-width="9" stroke-linecap="round"/>
                     <path d="M100 78 L86 92" stroke="#1D2B33" stroke-width="8" stroke-linecap="round"/>
@@ -748,20 +739,15 @@
               <div class="rule-step">
                 <div class="rule-step-icon">
                   <svg viewBox="0 0 200 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <!-- net -->
                     <path d="M112 10 V90" stroke="#3E6E77" stroke-width="2.5" stroke-dasharray="1 6" stroke-linecap="round"/>
-                    <!-- jumping figure -->
                     <circle cx="80" cy="30" r="10" fill="#1D2B33"/>
                     <path d="M80 40 L80 60" stroke="#1D2B33" stroke-width="9" stroke-linecap="round"/>
-                    <!-- arms straight up -->
                     <path d="M78 44 L64 14" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
                     <path d="M82 44 L96 14" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
-                    <!-- bent legs (jump) -->
                     <path d="M80 60 L68 70" stroke="#1D2B33" stroke-width="8" stroke-linecap="round"/>
                     <path d="M68 70 L74 84" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
                     <path d="M80 60 L94 70" stroke="#1D2B33" stroke-width="8" stroke-linecap="round"/>
                     <path d="M94 70 L88 84" stroke="#1D2B33" stroke-width="7" stroke-linecap="round"/>
-                    <!-- ball at hands near net -->
                     <circle cx="102" cy="12" r="9" fill="#F4A15B"/>
                     <path d="M97 8 q5 -4 10 0 M97 16 q5 4 10 0" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/>
                   </svg>
@@ -796,11 +782,12 @@
         <span class="feature-num">02 — Mölkky</span>
         <div class="feature-head">
           <h3>モルック大会</h3>
-          <span class="feature-tag">15:00〜</span>
+          <span class="feature-tag">15:00〜（予定）</span>
         </div>
       </div>
       <div>
         <p>運動が苦手な方も楽しめる「モルック」。木製のピンを倒して得点を競う、シンプルながら奥深いゲームです。ルール説明がありますので初めての方も安心してご参加ください。</p>
+        <p class="feature-time-note">※開始時間はエントリー数により前後する場合があります。</p>
         <div class="rule-box">
           <dl>
             <dt>対戦形式</dt><dd>2チーム対戦・トーナメント戦</dd>
@@ -1014,11 +1001,16 @@
     <h2 class="section-title">屋台メニュー</h2>
     <p class="section-lede">ヴィーガンの屋台メニュー。動物性食材・アルコール・五葷は一切使っていません。</p>
 
-    <div class="tbd-banner">
-      <div class="eyebrow">Coming Soon</div>
-      <b style="font-family:var(--serif); font-size:18px;">メニューは決まり次第公開します</b>
-      <p>今年のメニューが確定し次第、このセクションに掲載します。今しばらくお待ちください。</p>
-    </div>
+    <ul class="yatai-menu-list">
+      <li>田中屋ラーメン</li>
+      <li>焼きそば</li>
+      <li>カレー</li>
+      <li>ライス</li>
+      <li>炭火焼き</li>
+      <li>フルーツにんじんの冷製スープ</li>
+      <li>竜田揚げ</li>
+      <li>フライドポテト</li>
+    </ul>
   </div>
 </section>
 
